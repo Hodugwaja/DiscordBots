@@ -1,4 +1,5 @@
 const Discord = require('discord.js')
+const { prefix, token } = require("./config.json");
 const client = new Discord.Client()
 
 client.on('ready', () => {
@@ -48,4 +49,4 @@ client.on('ready', () => {
     client.user.setActivity("야구");
 })
 
-client.login("NzA3ODU4MTQ0MTY0MDUzMDYz.XrO6RA.VxgnFTCet0w8f2edFC17L-Nlijo")
+client.login("token")

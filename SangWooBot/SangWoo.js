@@ -16,11 +16,11 @@ client.on('disconnect', () => {
 });
 
 client.on("message", async message => {
-  if(message.content == "호구과자라는 분이 만드신 봇입니다."){
+  if(message.content == "호구과자라는 분이 만든 봇"){
     message.reply("흙흙 상우봇 상처받음");
   }
   if (message.author.bot) {
-      message.channel.send("네? 부르셨습니까?");
+      return;
   }
   if (!message.content.startsWith(prefix)) return;
 
@@ -39,9 +39,14 @@ client.on("message", async message => {
     let args = message.content.substring(prefix.length).split(" ");
 
     switch(args[0]){
+        case '테스트':
+            message.channel.send("가나다라마바사아자차카타파하");
+            break;
         case '노래부르기':
             message.channel.send("음 전 노래 부르기 좀 그러네요");
             message.channel.send("재균봇에게 노래 불러다갈라고 해보시죠");
+            message.channel.send("재균봇 없으면 링크로 초대하시죠");
+            message.channel.send("https://discordapp.com/oauth2/authorize?client_id=756712318221549599&scope=bot&permissions=8");
             break;
         case "소개":
             message.channel.send("안녕하세요 상우봇 입니다");
@@ -50,6 +55,7 @@ client.on("message", async message => {
             message.channel.send("버그에 걸려서 현재는 챗봇입니다");
             message.channel.send("뭐 버그를 고치거나 아니면 게임 봇이 될수 있을것 같네요");
             break;
+        case "상우":
         case "조상우":
             message.channel.send("음 제 모티브가 되는 사람이군요");
             message.channel.send("현재 키움히어로즈 마무리 투수인 조상우입니다")
@@ -65,17 +71,22 @@ client.on("message", async message => {
             message.channel.send("진짜에요 보여줄게요");
             message.channel.send("https://img.crazzzybaseball.com/edimg/5f618422cd1a5.jpg");
             break;
-        case "하성봇 라커룸":
-            message.channel.send("김하성 락커룸 ㄹㅇ 실화냐");
-            message.channel.send("누가보면 이사하는 것 같았음 ㅋㅋㄹㅃㅃ");
-            message.channel.send("https://img.crazzzybaseball.com/edimg/5f6183e307543.jpg");
+        case "하성봇":
+            if(args[1] === "라커룸"){
+              message.channel.send("김하성 락커룸 ㄹㅇ 실화냐");
+              message.channel.send("누가보면 이사하는 것 같았음 ㅋㅋㄹㅃㅃ");
+              message.channel.send("https://img.crazzzybaseball.com/edimg/5f6183e307543.jpg");
+              break;
+            }
+            message.channel.send("제 형이죠");
+            message.channel.send("실제로는 동생이지만");
+            message.channel.send("조상우 대뷔 : 2013년 1라운드 | 김하성 대뷔 : 2014년 2차 3라운드");
+            message.channel.send("하성봇 초대나 하죠");
+            message.channel.send("https://discordapp.com/oauth2/authorize?client_id=707858144164053063&scope=bot&permissions=8")
             break;
         case "도움말" :
             message.channel.send("상우봇에 온 것을 환영합니다");
-            message.channel.send("저는 노래를 못 부르지만, 노래는 잘 선정해주죠");
-            message.channel.send("'상우야 노래틀기 (링크)' 를 통해 노래를 틀면 됩니다");
-            message.channel.send("노래를 넘어가려면 '상우야 다음' 이라고 쓰면 되고 끄려면 '상우야 정지' 라고 쓰면 됩니다");
-            message.channel.send("참고로 이스터에그도 있으니 찾아보시죠");
+            message.channel.send("저는 챗봇입니다. 상우야 다음으로 입력해주시죠");
             message.channel.send("그리고 전 크린토피야 운영하지 않습니다 :(");
             break;
         case '아카 뮤직' :
@@ -94,7 +105,7 @@ client.on("message", async message => {
         case '준상봇':
             message.channel.send("파쿠르 못하는 방세준님이 만든 봇입니다");
             message.channel.send("중2병이지만 그래도 좋은 애일거에요");
-            message.channel.send("설치하려면 : https://discord.com/oauth2/authorize?client_id=756796849645420646&scope=bot&permissions=8");
+            message.channel.send("https://discord.com/oauth2/authorize?client_id=756796849645420646&scope=bot&permissions=8");
             message.channel.send("있으면 한번 저에 대해서 물어보죠");
             message.channel.send("준상아 상우");
             break;
@@ -144,12 +155,30 @@ client.on("message", async message => {
         case "레전드늅":
           message.channel.send("체인소우 ㄱ.. 이 아니라");
           message.channel.send("바구미 입니다");
+          break;
         case "HTML" :
           message.channel.send("HTML은 최고의 프로그래밍 언어 입ㄴ...");
           message.channel.send("는 얼어죽을");
           break;
         case "정륜":
           message.channel.send("4차원존재이자 인류의 머리로는 이해할수없는 존재");
+          break;
+        case "깃헙":
+          message.channel.send("https://github.com/cropMr/DiscordBots");
+          message.channel.send("이곳에 저 뿐만 아니라 호두과자님이 제작한 다른 봇들도 같이 있습니다");
+          break;
+        case "초대":
+          message.channel.send("https://discordapp.com/oauth2/authorize?client_id=756727028660699197&scope=bot&permissions=8");
+          message.channel.send("여기 초대장이요. 단 당신이 그 서버의 관리자여만 초대할 수 있어요");
+          break;
+        case "맥집":
+          message.channel.send("하이픽셀 잘하고 자바하는 맥심");
+          break;
+        case "눈공":
+          message.channel.send("power director 15로 편집하는 자");
+          break;
+        case "끼루":
+          message.channel.send("게이보그");
           break;
         default:
             message.channel.send("잘 알아듣지 못했습니다");
@@ -238,6 +267,33 @@ function play(guild, song) {
   serverQueue.textChannel.send(`노래곡 : **${song.title}**`);
 }
 
+const inviteSangWoo = {
+  color: 0x0099ff,
+	title: '상우봇 초대',
+	url: './상우봇',
+	author: {
+		name: '상우봇 초대하기',
+		icon_url: './상우봇.jpg',
+		url: 'https://discordapp.com/oauth2/authorize?client_id=756727028660699197&scope=bot&permissions=8',
+	},
+	description: 'Made by 호두과자#8981',
+}
+
+const inviteJunSang = {
+  color: 0x0099ff,
+	title: '준상봇 초대',
+	url: './상우봇.jpg',
+	author: {
+		name: '준상봇 초대하기',
+		icon_url: './상우봇.jpg',
+		url: 'https://discord.com/oauth2/authorize?client_id=756796849645420646&scope=bot&permissions=8',
+	},
+	description: 'Made by BangSeJun',
+}
+
 client.login(token);
 
 //https://discordapp.com/oauth2/authorize?client_id=756727028660699197&scope=bot&permissions=8
+//https://discordapp.com/oauth2/authorize?client_id=757219938644787200&scope=bot&permissions=8
+//https://discordapp.com/oauth2/authorize?client_id=707858144164053063&scope=bot&permissions=8
+//https://discordapp.com/oauth2/authorize?client_id=756712318221549599&scope=bot&permissions=8
