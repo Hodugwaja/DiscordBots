@@ -8,7 +8,7 @@ const queue = new Map();
 
 client.on('ready', () => {
   console.log("connected as " + client.user.tag);
-  client.user.setActivity("크린토피아 운영");
+  client.user.setActivity("노래 연습");
 });
 
 client.on('disconnect', () => {
@@ -17,12 +17,14 @@ client.on('disconnect', () => {
 
 
 client.on('message', message => {
+  const serverQueue = queue.get(message.guild.id);
   if (message.author.bot) {
     return;
   }
   if (!message.content.startsWith(prefix)) return;
   let args = message.content.substring(prefix.length).split(" ");
   if (args[0] === "노래틀기") {
+    
 		if (message.channel.type === 'dm') return;
 
 		const voiceChannel = message.member.voice.channel;
@@ -32,7 +34,6 @@ client.on('message', message => {
 		if (!voiceChannel) {
 			return message.reply('please join a voice channel first!');
 		}
-
 		voiceChannel.join().then(connection => {
 			const stream = ytdl(args[1], { filter: 'audioonly' });
 			const dispatcher = connection.play(stream);
@@ -40,15 +41,12 @@ client.on('message', message => {
 			dispatcher.on('finish', () => voiceChannel.leave());
 		});
   }
-  else{
-    
-  }
 });
 
 client.login(token);
 
 /*
-message.channel.send("'상우야 노래틀기 (링크)' 를 통해 노래를 틀면 됩니다");
-            message.channel.send("노래를 넘어가려면 '상우야 다음' 이라고 쓰면 되고 끄려면 '상우야 정지' 라고 쓰면 됩니다");
-            message.channel.send("참고로 이스터에그도 있으니 찾아보시죠")
-            */
+  message.channel.send("'상우야 노래틀기 (링크)' 를 통해 노래를 틀면 됩니다");
+  message.channel.send("노래를 넘어가려면 '상우야 다음' 이라고 쓰면 되고 끄려면 '상우야 정지' 라고 쓰면 됩니다");
+  message.channel.send("참고로 이스터에그도 있으니 찾아보시죠")
+*/

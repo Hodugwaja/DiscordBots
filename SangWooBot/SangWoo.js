@@ -147,9 +147,20 @@ client.on("message", async message => {
           message.channel.send("그만 알아보자");
           break;
         case "방세준":
-          message.channel.send("(올리브)빵이고");
-          message.channel.send("파쿠르 못하고");
-          message.channel.send("올리브 빵을 보고 군침이 마른 쯔위");
+          switch(random(1,4)){
+            case 1:
+              message.channel.send("(올리브)빵");
+              break;
+            case 2:
+              message.channel.send("파쿠르 못함");
+              break;
+            case 3: 
+              message.channel.send("올리브 빵을 보고 군침이 마른 쯔위");
+              break;
+            case 4:
+              message.channel.send("진동벨");
+              break;
+          }
           break;
         case "늅":
         case "레전드늅":
@@ -180,13 +191,22 @@ client.on("message", async message => {
         case "끼루":
           message.channel.send("게이보그");
           break;
+        case "혜성봇":
+          message.channel.send("혜성봇은 잠재적인 애입니다"); 
+          message.channel.send("저와 혜성봇의 개발자인 호두과자가 공부하면서 테스트를 위해 쓰거나");
+          message.channel.send("추후에는 discord.js를 더 쉽게 가르켜주기 위해 공식 포럼의 기능을 번역하거나 내용을 추가할 계획입니다(제발 그럴 수 있길)");
+          message.channel.send("우리 혜성봇 많이 사랑해 주세요");
+          message.channel.send("https://discordapp.com/oauth2/authorize?client_id=756728393839411281&scope=bot&permissions=8");
+          break;
         default:
             message.channel.send("잘 알아듣지 못했습니다");
             break;
     }
   }
 });
-
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 async function execute(message, serverQueue) {
   const args = message.content.split(" ");
 

@@ -49,4 +49,4 @@ client.on('ready', () => {
     client.user.setActivity("야구");
 })
 
-client.login("token")
+client.login(token);
